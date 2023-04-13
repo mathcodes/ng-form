@@ -1,10 +1,17 @@
-<article class="bg-gradient-to-b from-purple-700 to-sky-500 border text-text-color p-4 rounded-md shadow-md text-white p-4">
 
-  Angular Routing Example
+<div class="my-container">
+  <div class="bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 text-white  py-2 px-4">
+
+
+    <article class="flex flex-row justify-between mx-auto text-xl bg-gradient-to-b from-purple-700 to-sky-500 border text-text-color rounded-md shadow-md text-white p-4">
+    <div class="text-2xl font-bold">Angular API</div>
+    <nav>
+      <a routerLink="">Home</a> |
+      <a routerLink="/form">Form</a> |
+      <a routerLink="/results">Results</a>
+    </nav>
   </article>
-<nav>
-  <a routerLink="">Home</a> |
-  <a routerLink="/form">Form</a> |
-  <a routerLink="/results">Results</a>
-</nav>
-<router-outlet></router-outlet>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

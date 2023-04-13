@@ -1,23 +1,29 @@
-<form (submit)="onSubmit()">
-  <label>
-    Name:
-    <input type="text" name="name" [(ngModel)]="name" class="enabled:hover:border-gray-400 disabled:opacity-75 bg-zinc-200 m-2 rounded-md" >
-  </label>
-  <br>
-  <label>
-    Email:
-    <input type="email" name="email" [(ngModel)]="email" class="enabled:hover:border-gray-400 disabled:opacity-75 ..." >
-  </label>
-  <br>
-  <label>
-    City:
-    <input type="text" name="city" [(ngModel)]="city" class="enabled:hover:border-gray-400 disabled:opacity-75 ..." >
-  </label>
-  <br>
-  <label>
-    State:
-    <input type="text" name="state" [(ngModel)]="state" class="enabled:hover:border-gray-400 disabled:opacity-75 ..." >
-  </label>
-  <br>
-  <button type="submit">Submit</button>
+<app-page-header [title]="'Form'"></app-page-header>
+
+<form (submit)="onSubmit()" class="mx-auto max-w-md">
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2" for="name">
+      Name:
+    </label>
+    <input type="text" name="name" [(ngModel)]="name" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2" for="email">
+      Email:
+    </label>
+    <input type="email" name="email" [(ngModel)]="email" id="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2" for="city">
+      City:
+    </label>
+    <input type="text" name="city" [(ngModel)]="city" id="city" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+  </div>
+  <div class="mb-4">
+    <label class="block text-gray-700 font-bold mb-2" for="state">
+      State:
+    </label>
+    <input type="text" name="state" [(ngModel)]="state" id="state" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+  </div>
+  <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
 </form>
