@@ -1,10 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 .my-container {
-  max-width: 1200px; /* set the maximum width of the container */
-  margin: 0 auto; /* center the container horizontally */
-  padding: 0 1rem; /* add even padding to both sides */
+  max-width: 1200px;
+  /* set the maximum width of the container */
+  margin: 0 auto;
+  /* center the container horizontally */
+  padding: 0 1rem;
+  /* add even padding to both sides */
 }

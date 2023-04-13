@@ -1,9 +1,16 @@
 module.exports = {
   mode: 'jit',
-  purge: ['./src/**/*.{html,ts}'],
+  purge: [
+    './src/**/*.html',
+    './src/**/*.ts',
+  ],
   theme: {},
   variants: {},
-  plugins: [],
+  corePlugins: {
+    // ...
+    container: false,
+  },
+
   components: {
     '@layer': {
       '.from-secondary-color': {
