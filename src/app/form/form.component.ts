@@ -10,6 +10,7 @@ export class FormComponent implements OnInit {
   name = '';
   email = '';
   message = '';
+  city = '';
 
   constructor(private http: HttpClient) { }
 
@@ -21,7 +22,8 @@ export class FormComponent implements OnInit {
     const data = {
       name: this.name,
       email: this.email,
-      message: this.message
+      message: this.message,
+      city: this.city
     };
     this.http.post(endpoint, data)
       .subscribe(

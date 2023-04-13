@@ -7,17 +7,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
+    users: any[] = [];
 
-  name = '';
-  email = '';
+    constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-    this.http.get<any>('https://64378d38894c9029e8c03d0d.mockapi.io/api/ang/users/1')
-      .subscribe(data => {
-        this.name = data.name;
-        this.email = data.email;
+    ngOnInit(): void {
+      this.http.get<any[]>('https://64378d38894c9029e8c03d0d.mockapi.io/api/ang/users/').subscribe((data) => {
+        console.log(data);
+      this.users = data;
       });
+    }
   }
-}
