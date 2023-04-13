@@ -1,10 +1,80 @@
 <div class="container mx-auto px-4 max-w-3xl">
   <h1 class="text-4xl font-bold mb-4">User List</h1>
   <div class="grid grid-cols-3 gap-4">
-    <div class="bg-white rounded-lg shadow-lg p-4" *ngFor="let user of users">
+    <!--
+      *ngFor is a structural directive that will render the element for each item in the array
+     -->
+     <div *ngFor="let user of users">
       <h2 class="text-xl font-bold mb-2">{{ user.name }}</h2>
       <p class="text-gray-700 mb-2">{{ user.email }}</p>
-      <p class="text-gray-700">{{ user.city }}, {{ user.id }}</p>
+      <p class="text-gray-700">{{ user.city }}, {{ user.state }}</p>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="editSelectedUser(user)">Edit</button>
+
+      <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+        (click)="deleteUser(user)">Delete</button>
     </div>
   </div>
+  <form *ngIf="editing" (ngSubmit)="saveUser()">
+    <input type="text" [(ngModel)]="editUser.name" name="name">
+    <input type="text" [(ngModel)]="editUser.email" name="email">
+    <input type="text" [(ngModel)]="editUser.city" name="city">
+    <input type="text" [(ngModel)]="editUser.state" name="state">
+    <button type="submit">Save</button>
+    <button type="button" (click)="cancelEdit()">Cancel</button>
+  </form>
+
+  <!--
+    *ngIf is a structural directive that will only render the element if the condition is true
+   -->
+  <!-- <div class="mt-4" *ngIf="editing">
+    <h2 class="text-2xl font-bold mb-2">Edit User</h2>
+    <form>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="name">
+          Name
+        </label>
+        <input [(ngModel)]="editUser.name"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="name" type="text" placeholder="Name">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="email">
+          Email
+        </label>
+        <input [(ngModel)]="editUser.email"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="email" type="text" placeholder="Email">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="city">
+          City
+        </label>
+        <input [(ngModel)]="editUser.address.city"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="city" type="text" placeholder="City">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="state">
+          State
+        </label>
+        <input [(ngModel)]="editUser.address.state"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="state" type="text" placeholder="State">
+      </div>
+      <div class="flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          (click)="saveUser()">
+          Save
+        </button>
+        <button
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          (click)="cancelEdit()">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div> -->
+
+
 </div>
