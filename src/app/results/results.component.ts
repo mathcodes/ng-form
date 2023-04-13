@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-results',
@@ -7,17 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
 
-  name= '';
-  email= '';
+  name = '';
+  email = '';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    // Retrieve name and email from some source (e.g. service, API)
-    // and assign them to the properties
-    this.name = 'John Smith';
-    this.email = 'john@example.com';
+    this.http.get<any>('https://64378d38894c9029e8c03d0d.mockapi.io/api/ang/users/1')
+      .subscribe(data => {
+        this.name = data.name;
+        this.email = data.email;
+      });
   }
-
 }
-
